@@ -35,16 +35,20 @@ public class AddressBook {
 
     //Method to Show the Contact Details
     public void displayContact() {
-        System.out.println("--------------------------------------------");
-        System.out.println("Contact Details :-");
-        System.out.println("Name : "+contacts.getFirstname()+" "+contacts.getLastname());
-        System.out.println("Address : "+contacts.getAddress());
-        System.out.println("City : "+contacts.getCity());
-        System.out.println("State : "+contacts.getState());
-        System.out.println("PIN Code : "+contacts.getPin());
-        System.out.println("Phone Number : "+contacts.getPhonenumber());
-        System.out.println("EMail ID : "+contacts.getEmail());
-        System.out.println("---------------------------------------------");
+        if(contacts.getFirstname()==null) {
+            System.out.println("No Contact Found------!!!!!!!!!");
+            System.out.println("---------------------------------");
+        } else{
+            System.out.println("--------------------------------------------");
+            System.out.println("Contact Details :-");
+            System.out.println("Name : "+contacts.getFirstname()+" "+contacts.getLastname());
+            System.out.println("Address : "+contacts.getAddress());
+            System.out.println("City : "+contacts.getCity());
+            System.out.println("State : "+contacts.getState());
+            System.out.println("PIN Code : "+contacts.getPin());
+            System.out.println("Phone Number : "+contacts.getPhonenumber());
+            System.out.println("EMail ID : "+contacts.getEmail());
+            System.out.println("---------------------------------------------");}
     }
     //Method to Edit the Existing Contact
     public void editContact() {
@@ -53,7 +57,7 @@ public class AddressBook {
         String firstName = sc.next();
 
         //check if the Given User with First Name
-        if(!firstName.equals(contacts.getFirstname())) {
+        if(!firstName.equalsIgnoreCase(contacts.getFirstname())) {
             System.out.println("The Entered Contact Name is Not Available in Address Book");
         } else {
             System.out.println("Match Found--------!!!!");
@@ -75,7 +79,27 @@ public class AddressBook {
             System.out.println("Enter the EMail ID :");
             contacts.setEmail(sc.next());
             System.out.println("-------------------------------");
-            System.out.println("Contact Update Succesfully-----!!");
+            System.out.println("Contact Update Successfully-----!!");
+        }
+    }
+    public void deleteContact(){
+        //Get First Name to Delete the Contact
+        System.out.println("Enter the First Name : ");
+        String firstName = sc.next();
+
+        //check if the Given User with First Name
+        if(!firstName.equalsIgnoreCase(contacts.getFirstname())) {
+            System.out.println("The Entered Contact Name is Not Available in Address Book");
+        } else {
+            contacts.setFirstname(null);
+            contacts.setLastname(null);
+            contacts.setAddress(null);
+            contacts.setCity(null);
+            contacts.setState(null);
+            contacts.setPin(0);
+            contacts.setPhonenumber(0);
+            contacts.setEmail(null);
+            System.out.println("Contact Deleted Successfully-------!!!");
         }
     }
 }
