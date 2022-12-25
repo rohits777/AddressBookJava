@@ -6,8 +6,8 @@ public class Contacts {
     private String Address;
     private String city;
     private String state;
-    private long Pin;
-    private Long phonenumber;
+    private String Pin;
+    private String phonenumber;
     private String email;
 
     public String getFirstname() {
@@ -50,19 +50,19 @@ public class Contacts {
         this.state = state;
     }
 
-    public long getPin() {
+    public String getPin() {
         return Pin;
     }
 
-    public void setPin(long pin) {
+    public void setPin(String pin) {
         Pin = pin;
     }
 
-    public long getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(long phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 
@@ -72,5 +72,18 @@ public class Contacts {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacts Details :" +"\n"+
+                "Firstname :" + firstname +","+
+                "Lastname :" + lastname + ','+
+                "Address :" + Address + ',' +
+                "City :" + city + ',' +
+                "State :" + state + ',' +
+                "Pin :" + Pin +','+
+                "PhoneNumber :" + phonenumber +','+
+                "Email :" + email ;
     }
 }
